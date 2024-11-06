@@ -1,13 +1,26 @@
 export class Stock {
+    // Stock symbol (e.g., 'AAPL' for Apple)
     symbol: string;
-    prices: Map<string, number>; // precios por fecha
   
+    // Map to store prices by date (format: 'YYYY-MM-DD' => price)
+    prices: Map<string, number>;
+  
+    /**
+     * Creates a new Stock instance
+     * @param symbol - The stock symbol (e.g., 'AAPL')
+     * @param prices - Map of dates to prices
+     */
     constructor(symbol: string, prices: Map<string, number>) {
       this.symbol = symbol;
       this.prices = prices;
     }
   
-    // Método que devuelve el precio de la acción en una fecha específica
+    /**
+     * Gets the price of the stock for a specific date
+     * @param date - The date in format 'YYYY-MM-DD'
+     * @returns The stock price for the given date
+     * @throws Error if no price is available for the given date
+     */
     Price(date: string): number {
       const price = this.prices.get(date);
       if (price === undefined) {
